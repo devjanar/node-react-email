@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ReactQuill from 'react-quill';
 import { QuillModules_System, QuillFormats_System} from '../utils/quill';
+import InputForm from './common/InputForm'
 import styles from './Style.css'
 
 const Form = ({state, submitted, isValidate, onChange, onChangeHandlerQuill, onClick}) => {
@@ -26,27 +27,71 @@ const Form = ({state, submitted, isValidate, onChange, onChangeHandlerQuill, onC
                             checked={state.selectedOption === 'Outlook'}
                             onChange={onChange} /> Outlook
                     </label>
-                    {submitted && !state.selectedOption && <div className="help-block" style={{marginBottom: '15px'}}>Plese Select Gmail/Outlook</div>}
+                    {submitted
+                    && !state.selectedOption
+                    && <div className="warning-block" style={{marginBottom: '15px'}}>
+                        Please Select Service Gmail/Outlook</div>
+                    }
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Email" name='from' value={state.from} onChange={onChange} />
-                    {submitted && !state.from && <div className="help-block">Email is required</div>}
-                    {submitted && state.from && !isValidate.from && <div className="help-block">Wrong Format</div>}
+                    <InputForm
+                        type="text"
+                        placeholder="Email"
+                        className="form-control"
+                        name="from"
+                        value={state.from}
+                        onChange={onChange}
+                        submitted={submitted}
+                        requiredField="Email"
+                    />
+                    {submitted
+                        && state.from
+                        && !isValidate.from
+                        && <div className="warning-block">Wrong Format</div>
+                    }
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" placeholder="Password" name='password' value={state.password} onChange={onChange} />
-                    {submitted && !state.password && <div className="help-block">Email Password is required</div>}
+                    <InputForm
+                        type="password"
+                        placeholder="Password"
+                        className="form-control"
+                        name="password"
+                        value={state.password}
+                        onChange={onChange}
+                        submitted={submitted}
+                        requiredField="Password"
+                    />
                 </div>
             </div>
             <div className={styles.wrapper}>
                 <div className="form-group">
-                    <input type="text" className="form-control" placeholder="To" name='to' value={state.to} onChange={onChange} />
-                    {submitted && !state.to && <div className="help-block">Receiver Email is required</div>}
-                    {submitted && state.to && !isValidate.to && <div className="help-block">Wrong Format</div>}
+                    <InputForm
+                        type="email"
+                        placeholder="Receiver Email"
+                        className="form-control"
+                        name="to"
+                        value={state.to}
+                        onChange={onChange}
+                        submitted={submitted}
+                        requiredField="Receiver Email"
+                    />
+                    {submitted
+                        && state.to
+                        && !isValidate.to
+                        && <div className="warning-block">Wrong Format</div>
+                    }
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Subject" name='subject' value={state.subject} onChange={onChange} />
-                    {submitted && !state.subject && <div className="help-block">Subject is required</div>}
+                    <InputForm
+                        type="text"
+                        placeholder="Subject"
+                        className="form-control"
+                        name="subject"
+                        value={state.subject}
+                        onChange={onChange}
+                        submitted={submitted}
+                        requiredField="Subject"
+                    />
                 </div>
                 <div className="form-group">
                     <ReactQuill

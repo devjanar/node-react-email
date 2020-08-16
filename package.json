@@ -1,17 +1,21 @@
 {
-  "node": "12.16.1",
   "name": "nodemailer-react",
-  "version": "1.0.0",
   "description": "How to send email in Node.js, React.js, Redux.js",
+  "node": "12.16.1",
+  "version": "1.0.0",
   "main": "index.js",
+  "author": {
+    "name": "Mir Janar Hossain",
+    "email": "dev.janar@gmail.com",
+    "url": "https://github.com/devjanar",
+    "website": "https://innovationghar.com"
+  },
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\" ",
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:build-public": "webpack --config webpack.public.js --watch"
   },
-  "author": "Mir Janar Hossain",
-  "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -27,14 +31,14 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "compression": "^1.7.4",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.3.0",
     "css-loader": "^2.1.0",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
     "html-to-draftjs": "^1.5.0",
     "jquery": "^3.5.1",
     "nodemailer": "^6.4.10",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
